@@ -1,0 +1,92 @@
+use tiendaVidejuegos
+db.juegos.insertOne(
+{
+    "nombre": "the legend of zelda", 
+    "consola": "nintendo",
+    "generos": ["aventura", "mundo abierto"], 
+    "precio": 59.99, 
+    "stock": 20, 
+    "detalles adicionales": [{"fecha de lanzamiento": "2017-03-03"}, {"desarrolladora": "nintendo"}], 
+    "disponible": true
+    }
+    
+    )
+
+    {
+    "nombre": "god of war", 
+    "consola": "ps5",
+    "generos": ["accion", "aventura"], 
+    "precio": 69.99, 
+    "stock": 15, 
+    "disponible": true
+    },
+    
+        {
+    "nombre": "minecraft", 
+    "consola": "multiplataforma",
+    "generos": ["construccion", "supervivencia"], 
+    "precio": 29.99, 
+    "stock": 50, 
+    "disponible": true
+    },
+
+        {
+    "nombre": "mario karts 8", 
+    "consola": "nintendo switch",
+    "generos": ["carreras"], 
+    "precio": 49.99, 
+    "stock": 25, 
+    "disponible": true
+    }
+
+    //----------
+
+    {
+    "_id": 1,            
+    "nombre": "silksong", 
+    "consola": "ordenador",
+    "generos": ["fantasia", "pelea"], 
+    "precio": 29.99, 
+    "stock": 50, 
+    "disponible": true
+    },
+
+    {
+    "_id": 1,            
+    "nombre": "barbie", 
+    "consola": "ps5",
+    "generos": ["moda"], 
+    "precio": 19.99, 
+    "stock": 15, 
+    "disponible": true
+    }
+//-----------------------
+        {
+       
+    "nombre": "hollow knight", 
+    "consola": "multiplataforma",
+    "generos": ["ficcion", "pelea"], 
+    "precio": 14.99, 
+    "stock": 40, 
+    "detalles adicionales": {"fechadelanzamiento": ISODate("2017-02-24"), "desarrolladora": "team cherry", "IdiomasDisponibles": "ingles, español, frances"}, 
+    "disponible": true
+    }
+
+    ISODate -> $date
+
+//----------------
+
+    db.movies.find({"type": {"$ne": "movie"}})
+    db.movies.find({"type": {"$eq": "movie"}})
+    db.movies.find({"type": {"$eq": "series"}, "year": {"$gt": 2000}})
+    db.movies.find({"type": {"$eq": "series"}, "year": {"$gt": 2000}, "imdb.rating": {"$gt": 5.1}})
+    db.movies.countDocuments({"type": {"$eq": "series"}, "year": {"$gt": 2000}})
+    db.movies.find({"type": {"$eq": "series"}, "year": {"$gt": 2000, "$lt": 2005}})
+    db.movies.find({"type": {"$eq": "series"}, "$and": [{"year": {"$gt": 2000, "$lt": 2005}}, {"imdb.rating": {"$gt": 5.1}}]})
+    db.movies.find({"type": "series", "year": {"$gt": 2000, "$lt": 2005}, "imdb.rating": {"$gt": 5.1}}) //mejor
+    db.movies.find({"type": "series", "$and": [{"year": {"$gt": 2000}}, {"title": {"$regex": "A", "$options": "i"}}]}, {"title": 1, "_id": 0, "year": 1}) //con proyeccion, option i es para que sea insensible a mayuscula o minuscula, ^ es para que empiece "$regex": "^the"
+    db.movies.find({"type": "series", "$and": [{"year": {"$gt": 2000}}, {"title": {"$regex": "A", "$options": "i"}}]})
+    db.movies.find({"type": "movie", "$or": [{"year": {"$gt": 1979, "$lt": 2001}}, {"languages": ["French"]}]}) // solo con idioma frances sin el in
+    db.movies.countDocuments({"type": "movie", "$or": [{"year": {"$gt": 1979, "$lt": 2001}}, {"languages": { "$in": ["French"]}}]}) // que incluya frances pero tambien otros idiomas si hay
+    db.movies.countDocuments({"type": "movie", "$or": [{"year": {"$gt": 1979, "$lt": 2001}}, {"languages": { "$all": ["French", "English"]}}]}) //incluye frances e ingles
+    

@@ -1,0 +1,55 @@
+
+
+db.libros.inserOne({
+   
+    "titulo": "Cien Años de SOLEDAD",
+    "autor": "Gabriel Garcia Marquez",
+    "anio": 1967,
+    "generos": ["Realismo Magico", "Ficcion"],
+    "disponible": true
+    
+})
+
+//pruebasksksksk
+
+{   
+    "titulo": "la que se avecina",
+    "autor": "Joselito",
+    "anio": 2003,
+    "generos": ["comedia", "drama"],
+    "disponible": true
+},
+{
+     "titulo": "kingdom hears",
+    "autor": "pedrito",
+    "anio": 1994,
+    "generos": ["comedia", "Ficcion"],
+    "disponible": true
+},
+{
+     "titulo": "ABO DESIRE",
+    "autor": "Mellizas x",
+    "anio": 2025,
+    "generos": ["Drama", "Ficcion", "yaoi"],
+    "disponible": true
+}
+
+//-----------
+{   
+    "_id": 1,
+    "titulo": "jujutsu kaisen",
+    "autor": "gege akutami",
+    "anio": 2020,
+    "generos": ["comedia", "drama", "Ficcion"],
+    "disponible": true
+},
+{   
+    "_id": 2,
+    "titulo": "naruto",
+    "autor": "no me acuerdo",
+    "anio": 1999,
+    "generos": ["comedia", "drama", "Ficcion"],
+    "disponible": true
+}
+
+db.insertOne 
